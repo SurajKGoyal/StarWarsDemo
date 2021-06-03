@@ -6,5 +6,5 @@ import javax.inject.Singleton
 
 @Singleton
 class StarWarsRepository @Inject constructor(private val apiService: StarWarsApi) {
-
+    fun getData() = apiService.getPeople()
 }

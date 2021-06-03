@@ -1,8 +1,9 @@
 package com.heliushouse.starwars.di
 
 import android.content.Context
+import com.heliushouse.starwars.BuildConfig
 import com.heliushouse.starwars.api.StarWarsApi
-import com.heliushouse.numbertrivia.BuildConfig
+import com.heliushouse.starwars.utils.FlowCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,6 +32,7 @@ object NetworkModule {
         .addConverterFactory(
             GsonConverterFactory.create()
         )
+        .addCallAdapterFactory(FlowCallAdapterFactory.create())
         .build()
         .create(StarWarsApi::class.java)
 
