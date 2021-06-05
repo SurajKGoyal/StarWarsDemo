@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             viewModel.response.collect { uiState ->
                 when (uiState) {
-                    is ResponseState.Loading -> showDialog(uiState.msg)
+                    is ResponseState.Loading -> showLoading(uiState.msg)
                     is ResponseState.Success -> showList(uiState.response.peoples)
                     is ResponseState.Error -> showError(uiState.msg)
                 }
@@ -60,12 +60,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showDialog(message: String) {
-
+    private fun showLoading(message: String) {
+        binding.loading = true
     }
 
     private fun hideDialog() {
-
+        binding.loading = false
     }
 
     private fun showList(peoples: List<People>) {
