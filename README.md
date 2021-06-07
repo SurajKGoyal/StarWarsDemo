@@ -3,7 +3,7 @@ This project shows the data (Characters name) from swapi api and lets you perfor
 
 
 <p align="center">
-<img src="extras/number_trivia.gif"/>
+<img src="extras/swapi_gif.gif"/>
 </p>
 
 ## Usage
