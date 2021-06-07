@@ -14,28 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.MainActivity">
-
-        <RelativeLayout
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/heading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:text="Star Wars"/>
-            <SearchView
-                android:id="@+id/search_people"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layoutDirection="rtl"/>
-        </RelativeLayout>
+        tools:context=".ui.main.MainActivity">
 
         <androidx.recyclerview.widget.RecyclerView
             android:visibility="@{safeUnbox(loading)? View.GONE : View.VISIBLE}"
@@ -44,20 +23,20 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintTop_toTopOf="parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/list_item_name" />
 
         <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:visibility="@{safeUnbox(loading)? View.VISIBLE : View.GONE}"
-            app:lottie_rawRes="@raw/star_wars_loading"
+            app:lottie_rawRes="@raw/three_dots_circle_loading"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

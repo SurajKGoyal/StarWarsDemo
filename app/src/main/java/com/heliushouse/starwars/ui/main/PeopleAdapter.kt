@@ -1,4 +1,4 @@
-package com.heliushouse.starwars.ui
+package com.heliushouse.starwars.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
