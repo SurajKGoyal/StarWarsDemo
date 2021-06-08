@@ -13,10 +13,11 @@ This project is a demonstration of MVVM architecture with Hilt Dependency Inject
 
 ## Built With 🛠
 
-- [Swapi](https://swapi.dev/) - All the Star Wars data you've ever wanted
+- [Swapi](https://swapi.dev/) - All the Star Wars data you've ever wanted.
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
 - [Flow](https://developer.android.com/kotlin/flow) - In coroutines, a flow is a type that can emit multiple values sequentially.
 - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - Stores UI-related data that isn't destroyed on UI changes. 
+- [Lottie](https://lottiefiles.com/) - Lightweight, scalable animations for your websites and apps.
 
 ## Author ✍️
 
