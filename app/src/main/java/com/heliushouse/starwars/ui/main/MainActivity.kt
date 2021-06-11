@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuItemCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.snackbar.Snackbar
 import com.heliushouse.starwars.R
 import com.heliushouse.starwars.databinding.ActivityMainBinding
 import com.heliushouse.starwars.model.People
@@ -58,33 +59,12 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-   /* private fun initListener() {
-        lifecycleScope.launch {
-            binding.searchPeople.getQueryTextChangeStateFlow()
-                .debounce(300)
-                .filter { query ->
-                    return@filter query.isNotEmpty()
-                }
-                .distinctUntilChanged()
-                .flatMapLatest { query ->
-                    viewModel.search(query)
-                        .catch {
-                            emitAll(flowOf(emptyList()))
-                        }
-                }
-                .flowOn(Dispatchers.IO)
-                .collect { result ->
-                    binding.nameList.adapter = PeopleAdapter(result)
-                }
-        }
-    }
-*/
     private fun addObservers() {
         viewModel.getPeople()
         lifecycleScope.launch {
             viewModel.response.collect { uiState ->
                 when (uiState) {
-                    is ResponseState.Loading -> showLoading(uiState.msg)
+                    is ResponseState.Loading -> showLoading()
                     is ResponseState.Success -> showList(uiState.response.peoples)
                     is ResponseState.Error -> showError(uiState.msg)
                 }
@@ -92,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showLoading(message: String) {
+    private fun showLoading() {
         binding.loading = true
     }
 
@@ -107,7 +87,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun showError(message: String) {
         hideDialog()
-
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).apply {
+            animationMode = Snackbar.ANIMATION_MODE_SLIDE
+            show()
+        }
     }
 
     companion object{

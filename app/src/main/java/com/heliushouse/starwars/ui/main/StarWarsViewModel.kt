@@ -15,7 +15,7 @@ class StarWarsViewModel @Inject constructor(private val repository: StarWarsRepo
     ViewModel() {
 
     private val _response =
-        MutableStateFlow<ResponseState>(ResponseState.Loading("Fetching data..."))
+        MutableStateFlow<ResponseState>(ResponseState.Loading)
 
     val response: StateFlow<ResponseState> = _response
 
